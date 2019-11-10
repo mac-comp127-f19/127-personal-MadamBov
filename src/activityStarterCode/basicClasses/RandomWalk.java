@@ -34,13 +34,11 @@ public class RandomWalk {
      * @return Updated value.
      */
     public int advanceValue() {
-        Random randBoolean= new Random();
-        int newWalkValue=currentWalkvalue;
-        if (randBoolean.nextBoolean()){
-            newWalkValue++;
+        if (rng.nextBoolean()){
+            currentWalkvalue++;
         }
-        else{newWalkValue--;}
-        return newWalkValue;
+        else{currentWalkvalue--;}
+        return getValue();
     }
 }
 

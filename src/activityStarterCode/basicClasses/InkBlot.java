@@ -2,6 +2,8 @@ package activityStarterCode.basicClasses;
 
 import comp127graphics.CanvasWindow;
 import comp127graphics.Line;
+
+import javax.print.attribute.standard.PrinterMakeAndModel;
 import java.awt.*;
 import java.util.Random;
 
@@ -38,10 +40,14 @@ public class InkBlot {
     public void generateInkBlot() {
         RandomWalk randwalkx= new RandomWalk(150);
         RandomWalk randwalky= new RandomWalk(150);
-        for (int i=0;i<=100;i++){
-//            randwalkx=randwalky
-            canvas.add(advance(randwalkx,randwalky));
-            System.out.println("x"+randwalkx.getValue()+"y"+randwalky.getValue());
+        RandomWalk randwalkr= new RandomWalk(150);
+        RandomWalk randwalkg= new RandomWalk(150);
+        RandomWalk randwalkb= new RandomWalk(150);
+        for (int i=0;i<=15000;i++){
+            Line l=advance(randwalkx,randwalky);
+            l.setStrokeColor(getColor(randwalkr,randwalkg,randwalkb));
+            canvas.add(l);
+            canvas.add(mirror(l));
         }
 
     }
